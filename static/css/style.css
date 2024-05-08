@@ -1,0 +1,106 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: radial-gradient(#e4b7bc, #e77aa0);
+    padding: 20px;
+}
+
+.profile-container {
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    filter: drop-shadow(5px 8px 16px #000000);
+    overflow: hidden;
+        
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-color: #000000;
+    border-width: 2px;
+}
+
+.profile-username {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+.profile-location, .profile-age, .profile-bio, .status{
+    font-size: 16px;
+    color: #777777;
+    margin-bottom: 2px;
+
+}
+
+.profile-looking-for {
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #e3a19f;
+    color: #555;
+    border-radius: 16px;
+    margin-right: 8px;
+}
+
+.profile-interests, .profile-social {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+    margin-top: 20px;
+}
+
+.profile-interests-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-top: 2px;
+    font-weight: bold;
+    display: inline-block;
+
+}
+
+.profile-interest {
+    font-size: 14px;
+    color: #555555;
+    margin-bottom: 5px;
+}
+
+.profile-social-list {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.profile-social-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    object-fit: cover;
+}
+.profile-rating .star {
+    color: #ffd700;
+    font-size: 24px;
+}
+
+.admin-button {
+    background: url('../assets/settings.gif') no-repeat;
+    background-size: contain; 
+    width: 32px; 
+    height: 32px;
+    border: none; 
+    color: transparent; 
+    text-indent: 100%; 
+    white-space: nowrap; 
+    overflow: hidden; 
+}

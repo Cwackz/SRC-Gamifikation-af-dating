@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="profile-container">
+        <a href="/admin" class="admin-button" style="position: absolute; top: 0; right: 0;">settings</a>
+        <img class="profile-image" src="{{ url_for('static', filename='uploads/' + profile['profile_picture']) }}" alt="Profile Picture">
+        <h1 class="profile-username">{{ profile.username }} - {{ profile.age }}</h1>
+        <div class="profile-rating">
+            {% for i in range(1, 6) %}
+                {% if i <= profile['rating'] %}
+                    <span class="star">&#9733;</span>
+                {% else %}
+                    <span class="star">&#9734;</span>
+                {% endif %}
+            {% endfor %}
+        </div>
+    
+        <p class="profile-location">{{ profile.location }}</p>
+        <p class="status">Looking for</p>
+        <p class="profile-looking-for">{{ profile.looking_for }}</p>
+        <p class="profile-bio">{{ profile.bio }}</p>
+
+        <h2 class="profile-interests">Interests</h2>
+        <ul class="profile-interests-list">
+            {% for interest in profile.interests %}
+                <p class="profile-interest">{{ interest }}</p>
+            {% endfor %}
+        </ul>
+
+        <h2 class="profile-social">Social Media</h2>
+        <ul class="profile-social-list">
+                <li><a href="https://instagram.com/{{ profile.instagram }}"><img class="profile-social-icon" src="{{ url_for('static', filename='assets/instagram.png') }}" alt="Instagram"></a></li>
+            </ul>
+    </div>
+</body>
+</html>

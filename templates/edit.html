@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/admin-style.css') }}">
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <form method="post" action="{{ url_for('edit_profile') }}" enctype="multipart/form-data">
+        <label>Rating:</label>
+        <input type="number" name="rating" value="{{ profile['rating'] }}" min="0" max="5"><br><br>
+        <label>Profile Picture:</label><br>
+        <input type="file" name="profile_picture"><br><br>
+        <label>Username:</label>
+        <input type="text" name="username" value="{{ profile['username'] }}"><br><br>
+        <label>Location</label>
+        <input type="text" name="location" value="{{ profile['location'] }}"><br><br>
+        <label>Age:</label>
+        <input type="number" name="age" value="{{ profile['age'] }}"><br><br>
+        <label>Looking for:</label>
+        <select name="looking_for">
+            <option value="Long Term" {{ 'selected' if profile.looking_for == 'Long Term' }}>Long Term</option>
+            <option value="Short Term" {{ 'selected' if profile.looking_for == 'Short Term' }}>Short Term</option>
+            <option value="Hookup" {{ 'selected' if profile.looking_for == 'Hookup' }}>Hookup</option>
+            <option value="Long Term Open For Short Term" {{ 'selected' if profile.looking_for == 'Long Term Open For Short Term' }}>Long Term Open For Short Term</option>
+            <option value="Short Term Open For Long Term" {{ 'selected' if profile.looking_for == 'Short Term Open For Long Term' }}>Short Term Open For Long Term</option>
+        </select><br><br>
+
+        <label>Bio:</label><br>
+        <textarea name="bio" rows="4" cols="50">{{ profile['bio'] }}</textarea><br><br>
+        <label>Interests:</label><br>
+        <script>
+            function handleInterestChange(checkbox) {
+                if (!checkbox.checked) {
+                    var index = profile['interests'].indexOf(checkbox.value);
+                    if (index !== -1) profile['interests'].splice(index, 1);
+                }
+            }
+            </script>
+            
+            {% for interest in profile.interests %}
+                <input type="checkbox" name="interests" value="{{ interest }}" checked onchange="handleInterestChange(this)"> {{ interest }}<br>
+            {% endfor %}
+            <input type="text" name="new_interest" value=""><br><br>
+        <label>Instagram:</label>
+        <input type="text" name="Instagram" value="{{ profile['instagram'] }}"><br><br>
+        
+        <input type="submit" value="Save">
+    </form>
+</body>
+</html>
